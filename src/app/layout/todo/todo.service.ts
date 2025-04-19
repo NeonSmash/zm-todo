@@ -17,7 +17,7 @@ export class TodoService {
 
   postTodo(data: TodoItems) {
     return this.http
-      .post('http://localhost:5168/api/todo/createtodo', data)
+      .post('http://localhost:4200/api/todo/createtodo', data)
       .pipe(
         catchError((error) => {
           return throwError(
@@ -29,7 +29,7 @@ export class TodoService {
 
   updateTodo(data: TodoItems) {
     return this.http
-      .put(`http://localhost:5168/api/todo/updatetodo/${data.id}`, data)
+      .put(`http://localhost:4200/api/todo/updatetodo/${data.id}`, data)
       .pipe(
         catchError((error) => {
           return throwError(
@@ -42,7 +42,7 @@ export class TodoService {
   deleteComment(id: number, commentId: number): Observable<any> {
     return this.http
       .delete(
-        `http://localhost:5168/api/todo/delete/${id}/comment/${commentId}`
+        `http://localhost:4200/api/todo/delete/${id}/comment/${commentId}`
       )
       .pipe(
         catchError((error) => {
@@ -55,7 +55,7 @@ export class TodoService {
 
   deleteTodo(id: string): Observable<any> {
     return this.http
-      .delete(`http://localhost:5168/api/todo/deletetodo/${id}`)
+      .delete(`http://localhost:4200/api/todo/deletetodo/${id}`)
       .pipe(
         catchError((error) => {
           return throwError(
@@ -68,7 +68,7 @@ export class TodoService {
   getTodoById(id: number): Observable<any> {
     id;
     return this.http
-      .get<TodoItems>(`http://localhost:5168/api/todo/${id}`)
+      .get<TodoItems>(`http://localhost:4200/api/todo/${id}`)
       .pipe(
         map((data) => {
           return {
@@ -84,7 +84,7 @@ export class TodoService {
   }
 
   getUsers(searchTerm: string): Observable<EmailAddress[]> {
-    const url = `http://localhost:5168/api/todo/emaillist?search=${searchTerm}`;
+    const url = `http://localhost:4200/api/todo/emaillist?search=${searchTerm}`;
     return this.http.get<any>(url).pipe(
       map((response) => {
         if (response && response.emails) {
@@ -116,7 +116,7 @@ export class TodoService {
     //   .set('search', search);
 
     return this.http
-      .get<TodoDTO[]>('http://localhost:5168/api/todo/list', {
+      .get<TodoDTO[]>('http://localhost:4200/api/todo/list', {
         params,
       })
       .pipe(

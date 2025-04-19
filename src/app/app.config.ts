@@ -20,7 +20,7 @@ import {
   withInterceptors,
   withInterceptorsFromDi,
 } from '@angular/common/http';
-import { firebaseConfig } from '../../configs';
+import { firebaseConfig } from '../../config';
 import {
   AUTH_FORM_FEATURE_KEY,
   authFormReducer,

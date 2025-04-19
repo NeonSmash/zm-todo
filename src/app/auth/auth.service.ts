@@ -43,7 +43,7 @@ export class AuthService {
   }
 
   postEmail(data: EmailAddress) {
-    return this.http.post('http://localhost:5168/api/todo/email', data).pipe(
+    return this.http.post('http://localhost:4200/api/todo/email', data).pipe(
       catchError((error) => {
         return throwError(
           () => new Error(error.message || 'Valami hiba történt')
